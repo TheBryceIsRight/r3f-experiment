@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import Figma from "./Figma";
 import VSCode from "./VSCode";
 import Text from './Text';
@@ -37,20 +37,19 @@ export default function App() {
   return (
     <Canvas>
       <color attach="background" args={['black']} />
-      <ambientLight intensity={0.3} />
-      <spotLight position={[5, 10, 20]} angle={0.2} penumbra={1} />
+      <ambientLight intensity={0.1} />
+      <spotLight position={[-10, 40, 30]} angle={0.08} penumbra={0.8} />
       {/* <pointLight position={[-0, -0, -10]} /> */}
       <Text />
       <Figma />
       <VSCode />
-      <Label text="Design" x={-2.4} y={-1.3}/>
-      <Label text="Develop" x={0.5} y={-1.3}/>
+      <Label text="Design" x={-2.4} y={-1.3} />
+      <Label text="Develop" x={0.5} y={-1.3} />
       <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-2} scale={20} />
       <EffectComposer multisampling={8}>
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.3} />
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.1} intensity={0.2} />
+        {/* <Bloom luminanceThreshold={0} luminanceSmoothing={0.1} intensity={0.3} /> */}
+        {/* <Bloom luminanceThreshold={0} luminanceSmoothing={0.1} intensity={0.2} /> */}
       </EffectComposer>
-      {/* <Environment preset="night" background blur={0.6} /> */}
       <OrbitControls />
     </Canvas>
   )

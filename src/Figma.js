@@ -11,7 +11,7 @@ export default function Figma(props) {
 
 
   useFrame((state, delta) => (
-    group.current.rotation.z += (delta / 6),
+    // group.current.rotation.z += (delta / 6),
     group.current.rotation.x = Math.PI / 2
   ))
 
