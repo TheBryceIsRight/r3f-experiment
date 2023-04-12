@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-
+import Label from './Label'
 
 export default function Figma(props) {
   const group = useRef()
@@ -42,6 +42,7 @@ export default function Figma(props) {
         <meshStandardMaterial color={hovered ? "#613599" : '#A259FF'} />
       </mesh>
     </group>
+
   )
 }
 

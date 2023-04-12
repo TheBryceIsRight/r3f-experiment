@@ -33,8 +33,6 @@ function Box(props) {
 }
 
 export default function App() {
-  const [hovered, hover] = useState(false)
-  const mouse = useRef([0, 0])
 
   return (
     <Canvas>
@@ -47,10 +45,10 @@ export default function App() {
       <VSCode />
       <Label text="Design" x={-2.4} y={-1.3}/>
       <Label text="Develop" x={0.5} y={-1.3}/>
-      <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-1.7} scale={20} />
+      <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-2} scale={20} />
       <EffectComposer multisampling={8}>
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.3} />
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0} intensity={0.2} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.1} intensity={0.2} />
       </EffectComposer>
       {/* <Environment preset="night" background blur={0.6} /> */}
       <OrbitControls />
