@@ -5,12 +5,13 @@ import DM_Sans from "./three/examples/jsm/loaders/DM_Sans_Medium_Regular.json"
 
 extend({TextGeometry})
 
-export default function Text() {
+
+export default function Label(props) {
     const font = new FontLoader().parse(DM_Sans)
 
     return (
-        <mesh position={[-2.5, 2, 0.5]}>
-            <textGeometry args={['Choose your fighter', {font, size: 0.4, height: 0.1}]}/>
+        <mesh position={[props.x, props.y, 0.5]}>
+            <textGeometry args={[props.text, {font, size: 0.4, height: 0.1}]}/>
             <meshPhysicalMaterial attach="material" color={'#FFF'} />
         </mesh>
     )

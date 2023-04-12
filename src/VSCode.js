@@ -6,11 +6,12 @@ import { useFrame } from '@react-three/fiber'
 export default function VSCode(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/VSCode.gltf')
+
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
   useFrame((state, delta) => (
     group.current.rotation.z += (delta / 6),
-    group.current.rotation.x = 1.8
+    group.current.rotation.x = Math.PI / 2
   ))
 
   return (
@@ -18,10 +19,11 @@ export default function VSCode(props) {
       ref={group}
       {...props}
       dispose={null}
-      scale={clicked ? 60 : 50}
+      scale={clicked ? 60 : 40}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
+      position={[2, -1, 0]}
     >
       <mesh castShadow receiveShadow geometry={nodes.Top.geometry} material={materials['Blue']} >
         <meshStandardMaterial color={hovered ? "#003D65" : '#0065A9'} />

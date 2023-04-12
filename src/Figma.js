@@ -8,10 +8,11 @@ export default function Figma(props) {
   const { nodes, materials } = useGLTF('/Figma.gltf')
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
+
+
   useFrame((state, delta) => (
     group.current.rotation.z += (delta / 6),
-    group.current.rotation.x = 1.8
-
+    group.current.rotation.x = Math.PI / 2
   ))
 
   return (
@@ -19,11 +20,11 @@ export default function Figma(props) {
       ref={group}
       {...props}
       dispose={null}
-      scale={clicked ? 60 : 50}
+      scale={clicked ? 60 : 40}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
-
+      position={[-2, -1, 0]}
     >
       <mesh castShadow receiveShadow geometry={nodes.Blue.geometry} material={materials['SVGBlue']}>
         <meshStandardMaterial color={hovered ? "#107198" : '#1ABCFE'} />

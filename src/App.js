@@ -4,8 +4,10 @@ import { OrbitControls, Environment } from '@react-three/drei'
 import Figma from "./Figma";
 import VSCode from "./VSCode";
 import Text from './Text';
+import Ground from './Ground';
+import Label from './Label';
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 
-const fontUrl = "/DM_Sans_Medium_Regular.json"
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -31,15 +33,26 @@ function Box(props) {
 }
 
 export default function App() {
+  const [hovered, hover] = useState(false)
+  const mouse = useRef([0, 0])
+
   return (
     <Canvas>
-      <ambientLight intensity={0.4} />
-      <spotLight position={[0, 10, 10]} angle={0.15} penumbra={1} />
-      <pointLight position={[-10, -10, -10]} />
+      <color attach="background" args={['black']} />
+      <ambientLight intensity={0.3} />
+      <spotLight position={[5, 10, 20]} angle={0.2} penumbra={1} />
+      {/* <pointLight position={[-0, -0, -10]} /> */}
       <Text />
-      <Figma position={[-2.4, -1, 0]} />
-      <VSCode position={[1, -1, 0]} />
-      <Environment preset="dawn" background blur={0.6} />
+      <Figma />
+      <VSCode />
+      <Label text="Design" x={-2.4} y={-1.3}/>
+      <Label text="Develop" x={0.5} y={-1.3}/>
+      <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-1.7} scale={20} />
+      <EffectComposer multisampling={8}>
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.3} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0} intensity={0.2} />
+      </EffectComposer>
+      {/* <Environment preset="night" background blur={0.6} /> */}
       <OrbitControls />
     </Canvas>
   )
