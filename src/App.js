@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Text3D } from '@react-three/drei'
+import { OrbitControls, Environment } from '@react-three/drei'
 import Figma from "./Figma";
 import VSCode from "./VSCode";
 import Text from './Text';
@@ -38,9 +38,8 @@ export default function App() {
       <pointLight position={[-10, -10, -10]} />
       <Text />
       <Figma position={[-2.4, -1, 0]} />
-      {/* <Box position={[-1.2, 0, 0]} /> */}
-      <VSCode position={[0.6, -1, 0]} />
-      {/* <Box position={[1.2, 0, 0]} /> */}
+      <VSCode position={[1, -1, 0]} />
+      <Environment preset="dawn" background blur={0.6} />
       <OrbitControls />
     </Canvas>
   )
