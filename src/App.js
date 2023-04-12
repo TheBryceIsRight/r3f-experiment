@@ -1,8 +1,11 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Text3D } from '@react-three/drei'
 import Figma from "./Figma";
-import VSCode from "./VSCode"
+import VSCode from "./VSCode";
+import Text from './Text';
+
+const fontUrl = "/DM_Sans_Medium_Regular.json"
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -33,7 +36,8 @@ export default function App() {
       <ambientLight intensity={0.4} />
       <spotLight position={[0, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight position={[-10, -10, -10]} />
-      <Figma position={[-2.4, -1, 0]}/>
+      <Text />
+      <Figma position={[-2.4, -1, 0]} />
       {/* <Box position={[-1.2, 0, 0]} /> */}
       <VSCode position={[0.6, -1, 0]} />
       {/* <Box position={[1.2, 0, 0]} /> */}
