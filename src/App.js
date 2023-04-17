@@ -39,7 +39,7 @@ function DevModel({ url, ...props }) {
 export default function App() {
 
   const { Design } = useControls({ Design: { value: 'Figma', options: Object.keys(DESIGNMODELS) } });
-  const { Development } = useControls({ Development: { value: 'Postman', options: Object.keys(DEVMODELS) } });
+  const { Development } = useControls({ Development: { value: 'VSCode', options: Object.keys(DEVMODELS) } });
 
   return (
     <Canvas>
