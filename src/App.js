@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Stars } from '@react-three/drei'
 import Figma from "./Figma";
 import VSCode from "./VSCode";
 import Text from './Text';
@@ -43,6 +43,7 @@ export default function App() {
       <Text />
       <Figma />
       <VSCode />
+      <Stars />
       <Label text="Design" x={-2.4} y={-1.3} />
       <Label text="Develop" x={0.5} y={-1.3} />
       <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-2} scale={20} />
