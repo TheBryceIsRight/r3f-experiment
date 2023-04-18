@@ -20,11 +20,12 @@ export default function Figma(props) {
       ref={group}
       {...props}
       dispose={null}
-      scale={clicked ? 60 : 40}
-      onClick={(event) => click(!clicked)}
+      // scale={clicked ? 50 : 30}
+      scale={30}
+      // onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
-      position={[-2, -1, 0]}
+      position={[-2, -0.7, 0]}
     >
       <mesh castShadow receiveShadow geometry={nodes.Blue.geometry} material={materials['SVGBlue']}>
         <meshStandardMaterial color={hovered ? "#107198" : '#1ABCFE'} />

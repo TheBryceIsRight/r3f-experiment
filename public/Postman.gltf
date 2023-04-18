@@ -97,7 +97,7 @@
 		},
 		{
 			"mesh":3,
-			"name":"Stoamach2",
+			"name":"Stomach2",
 			"rotation":[
 				0.706355094909668,
 				0,
@@ -157,7 +157,7 @@
 		},
 		{
 			"mesh":6,
-			"name":"Helmet.001",
+			"name":"Helmet",
 			"rotation":[
 				0.706355094909668,
 				0,
@@ -177,7 +177,7 @@
 		},
 		{
 			"mesh":7,
-			"name":"Heltmet2",
+			"name":"Helmet2",
 			"rotation":[
 				0.706355094909668,
 				0,
@@ -197,7 +197,7 @@
 		},
 		{
 			"mesh":8,
-			"name":"Helmet",
+			"name":"Helmet3",
 			"rotation":[
 				0.706355094909668,
 				0,
@@ -417,7 +417,7 @@
 		},
 		{
 			"mesh":19,
-			"name":"White leg",
+			"name":"WhiteLeg",
 			"rotation":[
 				0.706355094909668,
 				0,
@@ -437,7 +437,7 @@
 		},
 		{
 			"mesh":20,
-			"name":"Helmet 2",
+			"name":"Helmet4",
 			"rotation":[
 				0.706355094909668,
 				0,

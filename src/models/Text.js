@@ -1,7 +1,7 @@
 import { extend } from "@react-three/fiber"
-import { FontLoader } from "./three/examples/jsm/loaders/FontLoader"
-import { TextGeometry } from "./three/examples/jsm/geometries/TextGeometry"
-import DM_Sans from "./three/examples/jsm/loaders/DM_Sans_Medium_Regular.json"
+import { FontLoader } from "../three/examples/jsm/loaders/FontLoader"
+import { TextGeometry } from "../three/examples/jsm/geometries/TextGeometry"
+import DM_Sans from "../three/examples/jsm/loaders/DM_Sans_Medium_Regular.json"
 
 extend({TextGeometry})
 

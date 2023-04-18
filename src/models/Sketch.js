@@ -20,11 +20,12 @@ export default function Sketch(props) {
             ref={group}
             {...props}
             dispose={null}
-            scale={clicked ? 60 : 40}
-            onClick={(event) => click(!clicked)}
+            // scale={clicked ? 50 : 30}
+            scale={30}
+            // onClick={(event) => click(!clicked)}
             onPointerOver={(event) => hover(true)}
             onPointerOut={(event) => hover(false)}
-            position={[-2, -1, 0]}
+            position={[-2.6, -0.7, 0]}
         >
             <mesh castShadow receiveShadow geometry={nodes.CenterBottom.geometry} material={materials['Yellow']}>
                 <meshStandardMaterial color={hovered ? "#986800" : '#FDAD00'} />
@@ -56,4 +57,4 @@ export default function Sketch(props) {
     )
 }
 
-useGLTF.preload('/Figma.gltf')
+useGLTF.preload('/Sketch.gltf')

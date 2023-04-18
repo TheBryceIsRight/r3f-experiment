@@ -1,12 +1,16 @@
-import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
-import Text from './Text';
-import Ground from './Ground';
-import Label from './Label';
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
-import { useControls } from 'leva'
-import { useGLTF } from '@react-three/drei'
+import { useRef, useState } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Stars } from '@react-three/drei';
+import Text from './models/Text';
+import Ground from './models/Ground';
+import Label from './models/Label';
+import Figma from './models/Figma';
+import Sketch from './models/Sketch';
+import VSCode from './models/VSCode';
+import Postman from './models/Postman';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { useControls } from 'leva';
+import { useGLTF } from '@react-three/drei';
 
 const DESIGNMODELS = {
   Figma: "./Figma.gltf",
@@ -19,18 +23,20 @@ const DEVMODELS = {
 }
 
 function DesignModel({ url, ...props }) {
-  const { scene } = useGLTF(url)
-  // <primitive object={...} mounts an already existing object
-  return <primitive object={scene} {...props} scale={25} />
+  if (url === "./Figma.gltf") {
+    return (<Figma />)
+  } else {
+    return (<Sketch />)
+  }
 }
 
 function DevModel({ url, ...props }) {
   const { scene } = useGLTF(url)
 
   if (url === "./Postman.gltf") {
-    return <primitive object={scene} {...props} scale={0.7} />
+    return <primitive object={scene} {...props} scale={0.8} />
   } else {
-    return <primitive object={scene} {...props} scale={25} />
+    return (<VSCode />)
   }
   // <primitive object={...} mounts an already existing object
 }
@@ -49,8 +55,8 @@ export default function App() {
       {/* <pointLight position={[-0, -0, -10]} /> */}
       <Text />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-        <DevModel position={[1.4, 0.25, 0]} url={DEVMODELS[Development]} />
-        <DesignModel position={[-1.4, 0.25, 0]} url={DESIGNMODELS[Design]} />
+      <DevModel position={[1.4, 0.25, 0]} url={DEVMODELS[Development]} />
+      <DesignModel position={[-1.4, 0.25, 0]} url={DESIGNMODELS[Design]} />
       <Label text="Design" x={-2.4} y={-1.3} />
       <Label text="Develop" x={0.5} y={-1.3} />
       <Ground mirror={1} blur={[12000, 1200]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-2} scale={20} />

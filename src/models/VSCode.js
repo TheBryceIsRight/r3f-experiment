@@ -8,7 +8,7 @@ export default function VSCode(props) {
   const { nodes, materials } = useGLTF('/VSCode.gltf')
 
   const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
+  // const [clicked, click] = useState(false)
   useFrame((state, delta) => (
     // group.current.rotation.z += (delta / 6),
     group.current.rotation.x = Math.PI / 2
@@ -19,11 +19,12 @@ export default function VSCode(props) {
       ref={group}
       {...props}
       dispose={null}
-      scale={clicked ? 60 : 40}
-      onClick={(event) => click(!clicked)}
+      // scale={clicked ? 50 : 30}
+      scale={30}
+      // onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
-      position={[0.6, -1, 0]}
+      position={[0.6, -0.7, 0]}
     >
       <mesh castShadow receiveShadow geometry={nodes.Top.geometry} material={materials['Blue']} >
         <meshStandardMaterial color={hovered ? "#003D65" : '#0065A9'} />
