@@ -7,7 +7,7 @@ import Label from './models/Label';
 import Figma from './models/Figma';
 import Sketch from './models/Sketch';
 import VSCode from './models/VSCode';
-import Postman from './models/Postman';
+// import Postman from './models/Postman';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { useControls } from 'leva';
 import { useGLTF } from '@react-three/drei';
